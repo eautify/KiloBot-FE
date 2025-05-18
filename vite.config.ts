@@ -17,4 +17,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://www.fruityvice.com', // FastAPI backend
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })
